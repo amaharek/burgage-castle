@@ -654,9 +654,19 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     } catch (e) { /* ignore */ }
   }
 
+  function updateShare() {
+    // First-person message once the visitor has opened at least one email; neutral before that
+    var sent = $all(".mail.opened").length > 0;
+    var msg = sent
+      ? "I've just sent my complaints about the late-night pours at the Burgage More site. Took me 2 minutes. Please send yours too, the more households the better 💪 "
+      : "Late-night pours at the Burgage More site? Send ready-made complaints to the council, councillors and TDs in 2 minutes. The more households the better 💪 ";
+    $("#wa").href = "https://wa.me/?text=" + enc(msg + location.href.split("#")[0]);
+  }
+
   function markOpened(key) {
     var c = $('.mail[data-key="' + key + '"]');
     if (c) c.classList.add("opened");
+    updateShare();
     try {
       var s = JSON.parse(localStorage.getItem(STORE) || "{}");
       s.opened = s.opened || [];
@@ -745,9 +755,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   });
 
   // Sharing
-  var shareMsg = "Late-night pours at the Burgage More site? Send 4 ready-made complaints to the council and our councillors and TDs in a few minutes: ";
   var pageUrl = location.href.split("#")[0];
-  $("#wa").href = "https://wa.me/?text=" + enc(shareMsg + pageUrl);
+  updateShare();
   $("#copy-link").addEventListener("click", function () { copyText(pageUrl, this); });
 })();
 </script>
