@@ -36,7 +36,7 @@
     },
     addr: function (d) { return d.address || "[your address]"; },
     sig: function (d) {
-      return "Yours sincerely,\n" + (d.name || "[Your name]") + "\n" +
+      return "Kind regards,\n" + (d.name || "[Your name]") + "\n" +
         (d.address || "[Your address]") + (d.phone ? "\n" + d.phone : "");
     },
     personal: function (d) { return C.personal ? C.personal(d, H) : []; }
@@ -59,14 +59,14 @@
       '</dl>' +
       '<div class="actions">' +
         '<a class="btn-primary" data-mailto href="#">Open in my email app</a>' +
-        '<p class="hint">Uses whatever app your phone or laptop already has. If nothing opens, pick yours below.</p>' +
+        '<p class="hint">If nothing opens, choose an app below.</p>' +
         '<div class="secondary three">' +
           '<a class="btn-secondary" data-gmail href="#" target="_blank" rel="noopener">Gmail</a>' +
           '<a class="btn-secondary" data-outlook href="#" target="_blank" rel="noopener">Outlook</a>' +
           '<a class="btn-secondary" data-apple href="#">Apple&nbsp;Mail</a>' +
         '</div>' +
         '<button type="button" class="btn-secondary" data-copy="body">Copy message</button>' +
-        '<p class="status" role="status">Opened. Check it over and press Send in your email app.</p>' +
+        '<p class="status" role="status">Review the draft in your email app, then press Send.</p>' +
       '</div>' +
       '<details><summary>Read the email</summary><pre class="preview" data-preview></pre></details>';
     $("h3", card).textContent = m.title;
