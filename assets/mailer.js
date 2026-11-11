@@ -14,6 +14,9 @@
   var IDENTITY = "burgage-identity-v1";
   var ID_FIELDS = ["name", "address", "phone"];
   var STORE = C.store;
+  // iPadOS can identify itself as a Mac when requesting desktop websites.
+  var IOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
 
   function $(sel, root) { return (root || document).querySelector(sel); }
   function $all(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
@@ -65,6 +68,7 @@
           '<a class="btn-secondary" data-outlook href="#" target="_blank" rel="noopener">Outlook</a>' +
           '<a class="btn-secondary" data-apple href="#">Apple&nbsp;Mail</a>' +
         '</div>' +
+        '<p class="hint" data-gmail-help hidden>Gmail not opening? Open this page in Safari, or try <a data-gmail-web href="#" target="_blank" rel="noopener">Gmail in your browser</a>.</p>' +
         '<button type="button" class="btn-secondary" data-copy="body">Copy message</button>' +
         '<p class="status" role="status">Review the draft in your email app, then press Send.</p>' +
       '</div>' +
@@ -73,6 +77,12 @@
     $("[data-blurb]", card).textContent = m.blurb;
     $("[data-to]", card).textContent = m.to.join("\n");
     $("[data-subject]", card).textContent = m.subject;
+    if (IOS) {
+      // A direct tap in the current tab lets iOS hand the link to Gmail.
+      $("[data-gmail]", card).removeAttribute("target");
+      $("[data-gmail]", card).textContent = "Gmail app";
+      $("[data-gmail-help]", card).hidden = false;
+    }
     if (m.cc && m.cc.length) {
       $("[data-cc]", card).textContent = m.cc.map(function (e) {
         return C.ccRoles && C.ccRoles[e] ? e + " (" + C.ccRoles[e] + ")" : e;
@@ -95,7 +105,7 @@
     return d;
   }
 
-  /* ---- the four ways out ---- */
+  /* ---- compose links ---- */
   function cc(m) { return m.cc || []; }
 
   function mailtoHref(m, body) {
@@ -106,10 +116,17 @@
     q.push("body=" + enc(body.replace(/\n/g, "\r\n")));
     return "mailto:" + m.to.join(",") + "?" + q.join("&");
   }
-  function gmailHref(m, body) {
+  function gmailWebHref(m, body) {
     var url = "https://mail.google.com/mail/?view=cm&fs=1&to=" + enc(m.to.join(","));
     if (cc(m).length) url += "&cc=" + enc(cc(m).join(","));
     return url + "&su=" + enc(m.subject) + "&body=" + enc(body);
+  }
+  function gmailHref(m, body) {
+    if (!IOS) return gmailWebHref(m, body);
+    // Gmail's iOS compose scheme uses "subject", unlike webmail's "su".
+    var url = "googlegmail:///co?to=" + enc(m.to.join(","));
+    if (cc(m).length) url += "&cc=" + enc(cc(m).join(","));
+    return url + "&subject=" + enc(m.subject) + "&body=" + enc(body);
   }
   function outlookHref(m, body) {
     // Outlook's web compose link has no dependable cc parameter, so everyone
@@ -131,6 +148,7 @@
       $("[data-mailto]", card).href = href;
       $("[data-apple]", card).href = href;
       $("[data-gmail]", card).href = gmailHref(m, body);
+      $("[data-gmail-web]", card).href = gmailWebHref(m, body);
       $("[data-outlook]", card).href = outlookHref(m, body);
     });
     save(d);
@@ -269,7 +287,7 @@
     var key = card.getAttribute("data-key");
     var m = C.emails[key];
 
-    ["[data-mailto]", "[data-apple]", "[data-gmail]", "[data-outlook]"].forEach(function (sel) {
+    ["[data-mailto]", "[data-apple]", "[data-gmail]", "[data-gmail-web]", "[data-outlook]"].forEach(function (sel) {
       $(sel, card).addEventListener("click", function (e) {
         if (!validate()) { e.preventDefault(); return; }
         render();
