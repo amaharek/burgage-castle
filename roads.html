@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en-IE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ramps, A Mirror And Bins</title>
+<meta name="description" content="Three ready-made emails to Wicklow County Council and local representatives asking for speed ramps, a curved mirror and bins for litter and dog waste on the road from the coffee shop to the graveyard, Blessington.">
+<meta property="og:title" content="Ramps, A Mirror And Bins">
+<meta property="og:description" content="Cars fly down the coffee-shop road and there isn't a bin on it. Three ready-made emails, a couple of minutes each.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Public+Sans:wght@400;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="stripe" aria-hidden="true"></div>
+<main class="wrap">
+
+  <a class="backlink" href="./">&larr; Burgage Castle</a>
+
+  <header>
+    <p class="eyebrow">Coffee shop to the graveyard &middot; Blessington</p>
+    <h1>Slow this road down</h1>
+    <p class="lede">Three emails, already written. They ask the council for speed ramps, a curved mirror, and bins for litter and dog waste. Put your name and address in, read them over, press Send. Couple of minutes.</p>
+    <div class="tally" id="tally" data-tally-box hidden aria-live="polite">
+      <div class="tally-stat"><span class="tally-num" id="t-emails">0</span><span class="tally-label">emails sent so far</span></div>
+      <p class="tally-note">Counts each email opened from this page. No names or addresses are recorded.</p>
+    </div>
+  </header>
+
+  <div class="proposal">
+    <h2>The three asks</h2>
+    <p class="muted small">Cars come off the N81 and fly down this road. People walk it all day, and there isn't a bin on the whole stretch.</p>
+    <div class="options">
+      <div class="option"><span class="time">1</span><span><strong>Speed ramps.</strong> The main one. Signs and paint won't slow anyone down here &mdash; something physical will.</span></div>
+      <div class="option"><span class="time">2</span><span><strong>A curved mirror</strong> where you can't see what's coming when you pull out.</span></div>
+      <div class="option"><span class="time">3</span><span><strong>Bins &mdash; litter and dog waste.</strong> Cups and cans end up in the hedges, and bagged dog waste gets left on walls because there's nowhere to put it.</span></div>
+    </div>
+    <p class="answer">Traffic calming goes on a district priority list. The more households that write in, the higher up it goes.</p>
+  </div>
+
+  <section aria-labelledby="details-h">
+    <div class="section-head">
+      <span class="step-label">Step 1</span>
+      <h2 id="details-h">Your details</h2>
+    </div>
+    <form id="details" novalidate>
+      <div class="field" id="f-name">
+        <label for="name">Full name</label>
+        <input type="text" id="name" autocomplete="name" placeholder="e.g. Mary Byrne">
+        <span class="err">Add your name. The council won't act on unsigned requests.</span>
+      </div>
+      <div class="field" id="f-address">
+        <label for="address">Your address</label>
+        <input type="text" id="address" autocomplete="street-address" placeholder="e.g. 25 Burgage Castle, Blessington">
+        <span class="err">Add your address so they know you live on or near this road.</span>
+      </div>
+      <div class="field">
+        <label for="phone">Phone <span class="opt">(optional)</span></label>
+        <input type="tel" id="phone" autocomplete="tel" placeholder="e.g. 087 123 4567">
+      </div>
+      <div class="field">
+        <label for="road">Which stretch of road?</label>
+        <input type="text" id="road" value="the road from the coffee shop at Blessington Business Park down past the graveyard, towards the Avon off the N81">
+        <span class="small muted">Change this if you'd put it differently. A clear description helps the engineer find it.</span>
+      </div>
+      <div class="field">
+        <label for="mirror">Where would a mirror help? <span class="opt">(optional)</span></label>
+        <input type="text" id="mirror" placeholder="e.g. coming out of the estate towards the coffee shop">
+        <span class="small muted">Name the junction or bend &mdash; however you'd say it to a neighbour.</span>
+      </div>
+      <fieldset>
+        <legend>What's it like for you? <span class="opt">(tick any)</span></legend>
+        <label class="check"><input type="checkbox" name="impact" value="kids" checked> Children from our house walk on this road</label>
+        <label class="check"><input type="checkbox" name="impact" value="nearmiss" checked> Someone in our house has had a near miss with a speeding car</label>
+        <label class="check"><input type="checkbox" name="impact" value="dogs" checked> It's a well-walked dog route with nowhere to put a bag</label>
+        <label class="check"><input type="checkbox" name="impact" value="litter" checked> Litter is building up in the hedges and on the verges</label>
+        <label class="check"><input type="checkbox" name="impact" value="footpath"> There's no footpath, or it runs out partway along</label>
+        <label class="check"><input type="checkbox" name="impact" value="sightlines"> You can't see what's coming when you pull out</label>
+      </fieldset>
+      <div class="field">
+        <label for="incidents">Near misses or bad speeding you've seen <span class="opt">(optional, but it helps)</span></label>
+        <textarea id="incidents" rows="3" placeholder="One per line, e.g. - Sat 8 Nov, around 4pm: car overtook near the graveyard while we were walking"></textarea>
+        <span class="small muted">Dates and times make it real. A speed survey gets ordered off the back of specifics like these.</span>
+      </div>
+      <div class="field">
+        <label for="extra">Anything else you want to say <span class="opt">(optional)</span></label>
+        <textarea id="extra" placeholder="In your own words. A line of your own is worth more than the whole template."></textarea>
+      </div>
+      <p class="privacy">Nothing is sent from this page. Your details stay on your phone and only go out when you press Send in your own email app. If you already filled these in on the late-works page, they're carried over.</p>
+    </form>
+  </section>
+
+  <section aria-labelledby="send-h">
+    <div class="section-head">
+      <span class="step-label">Step 2</span>
+      <h2 id="send-h">Send all three</h2>
+      <p class="muted small">Roads and bins are different sections of the council, so they go separately and each gets its own answer. The councillors' one is what gets it onto a meeting agenda.</p>
+    </div>
+    <div class="mails" id="mails"></div>
+  </section>
+
+  <section aria-labelledby="after-h">
+    <div class="section-head">
+      <span class="step-label">Step 3</span>
+      <h2 id="after-h">Keep it going</h2>
+    </div>
+    <ul class="tips">
+      <li>Ask for a reference number, and ask where the road sits on the district's traffic calming list. That gives you something to chase.</li>
+      <li>Speeding itself is a Garda matter, not the council's. A call to Blessington Garda Station asking for speed checks on this stretch is worth doing alongside the emails.</li>
+      <li>Baltinglass Municipal District meets monthly. Once you've emailed the councillors, follow up after the next meeting and ask what came of it.</li>
+      <li>Take photos of the litter and the bagged dog waste, with the date. It's hard to argue with.</li>
+      <li>Numbers are what move this. One letter is a request; twenty from the same road is a problem they have to schedule.</li>
+      <li>Also worth five minutes: <a href="late-works.html">the late-night work at the Burgage More site</a>.</li>
+    </ul>
+  </section>
+
+  <div class="share">
+    <h2>Share with neighbours</h2>
+    <p class="small muted">The more households that send these, the higher it goes up the list.</p>
+    <div class="secondary">
+      <a class="btn-secondary" id="wa" href="#" target="_blank" rel="noopener">Share on WhatsApp</a>
+      <button type="button" class="btn-secondary" id="copy-link">Copy link</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>Made by residents at Burgage Castle, Blessington. Council and councillor addresses are from wicklow.ie; TD addresses are their Oireachtas emails. This is not legal advice.</p>
+    <p>Your details are never sent anywhere by this page. A copy stays on your own device so you don't have to retype them. When you tap an email button, the page adds one to an anonymous tally (kept by the free Abacus counter service) so neighbours can see how many have been sent.</p>
+  </footer>
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  var CC_ROLES = {
+    "transadmin@wicklowcoco.ie": "Transportation & Roads, and the Road Safety Officer",
+    "jlane@wicklowcoco.ie": "Director of Services, Transport & Infrastructure Delivery",
+    "BaltinglassMD@wicklowcoco.ie": "Baltinglass Municipal District office",
+    "Blessington@wicklowcoco.ie": "Blessington Area Office"
+  };
+  var COUNCILLORS = [
+    "jmulhall@wicklowcoco.ie",
+    "acronin@wicklowcoco.ie",
+    "pstapleton@wicklowcoco.ie",
+    "GEONeill@wicklowcoco.ie",
+    "PatsyGlennon@gmail.com",
+    "pmahon@wicklowcoco.ie"
+  ];
+  var TDS = [
+    "john.brady@oireachtas.ie",
+    "simon.harris@oireachtas.ie",
+    "edward.timmins@oireachtas.ie",
+    "jennifer.whitmore@oireachtas.ie"
+  ];
+
+  function road(d) {
+    return d.road || "the road from the coffee shop down past the graveyard, Blessington";
+  }
+  // Just the place, so it reads correctly whether someone writes
+  // "the junction at the top" or "coming out of the estate".
+  function mirrorSpot(d) {
+    return d.mirror || "the spot where you can see least";
+  }
+
+  window.CAMPAIGN = {
+    store: "blessington-roads-v1",
+    counterKey: "roads",
+    fields: ["name", "address", "phone", "road", "mirror", "incidents", "extra"],
+    required: ["name", "address"],
+    ccRoles: CC_ROLES,
+    impacts: {
+      kids: "children from our house walk on this road",
+      nearmiss: "someone in our house has had a near miss with a speeding car here",
+      dogs: "it's a well-walked dog route and there's nowhere to put a bag",
+      litter: "litter is building up in the hedges and on the verges",
+      footpath: "there's no footpath, or it runs out partway along",
+      sightlines: "you can't see what's coming when you pull out"
+    },
+    personal: function (d, h) {
+      var out = [];
+      if (d.incidents) out.push("What I've seen on this road:\n" + d.incidents);
+      if (d.impacts.length) out.push("What it's like from our house:\n" + h.bullets(d.impacts));
+      if (d.extra) out.push(d.extra);
+      return out;
+    },
+    share: {
+      sent: "Just sent mine — asking the council for speed ramps, a mirror and bins on the road from the coffee shop to the graveyard. Took 2 minutes, the emails are already written. Please send yours too 💪 ",
+      neutral: "Cars are flying down the road from the coffee shop to the graveyard, and there isn't a bin on it. Ready-made emails asking for ramps, a mirror and bins — 2 minutes 💪 "
+    },
+    order: ["md", "bins", "reps"],
+    emails: {
+      md: {
+        title: "District Engineer — ramps and mirror",
+        blurb: "Goes to the Baltinglass district office in Blessington, who look after our local roads. Leads on the ramps, then the mirror and a speed survey.",
+        to: ["BaltinglassMD@wicklowcoco.ie", "Blessington@wicklowcoco.ie"],
+        cc: ["transadmin@wicklowcoco.ie", "jlane@wicklowcoco.ie"],
+        subject: "Request for speed ramps and a mirror: coffee shop to graveyard road, Blessington",
+        body: function (d, h) {
+          return [
+            "Dear District Engineer,",
+            "I live at " + h.addr(d) + ", and I'm writing about the speed of traffic on " + road(d) + ".",
+            "Cars come off the N81 and fly down this stretch. People walk it all day, children included, going to and from the coffee shop and the shops. Drivers treat it as a shortcut rather than a road people live on."
+          ].concat(h.personal(d), [
+            "What I'm asking for, in order:\n\n1. Speed ramps. This is the main thing. Signs and painted lines won't slow anyone down here, but ramps will. A set along the stretch between the coffee shop and the graveyard would do it, and one near the estate entrance most of all.\n\n2. A convex (curved) mirror, so you can see what's coming before you pull out. The spot that needs it: " + mirrorSpot(d) + ".\n\n3. A speed survey, so you have your own numbers on this rather than just taking our word for it.",
+            "The council's own 106-home development at Burgage More is being built right now, so the traffic is only going to get heavier. Far better to put ramps in before the estate fills up than to come back to it after.",
+            "Could you please:\n- put this road forward for assessment under the council's Traffic Calming Policy, and tell me where it sits on the district's priority list\n- give me a reference number for this request\n- let me know what's planned, and roughly when"
+          ]).concat([
+            "I've copied Transportation & Roads and the Director of Services.",
+            h.sig(d)
+          ]).join("\n\n");
+        }
+      },
+      bins: {
+        title: "Environment — litter and dog waste bins",
+        blurb: "Bins are Environment's job, not Roads, so this goes separately. Covers the litter in the hedges and the bagged dog waste being left on walls.",
+        to: ["env@wicklowcoco.ie"],
+        cc: ["BaltinglassMD@wicklowcoco.ie", "Blessington@wicklowcoco.ie"],
+        subject: "Request for litter and dog waste bins: coffee shop to graveyard road, Blessington",
+        body: function (d, h) {
+          return [
+            "Dear Environment Section,",
+            "I live at " + h.addr(d) + ". I'm writing to ask for public bins on " + road(d) + ".",
+            "There isn't a single bin along this road. It's the walking route between the houses at Burgage Castle and Burgage More, the coffee shop and the graveyard, so there's a steady stream of people going up and down it with takeaway cups and dogs, and nowhere to put anything.",
+            "Two things are building up:\n\n1. Litter. Coffee cups, cans and wrappers end up in the hedges and on the verges along the whole stretch, and worst of all down at the graveyard end. Nobody's going to carry a cup the whole way home, so it goes in the ditch.\n\n2. Dog waste. This is a well-walked dog route and there's nowhere at all to put a bag. So bagged waste gets left on walls, on the verge and hanging in the hedges, which is honestly worse than if it had been left alone. A dog-waste bin, or just normal bins people can use for it, would clear up most of this."
+          ].concat(h.personal(d), [
+            "Could you please:\n- put public bins along this stretch, one near the coffee shop end and one near the graveyard at the very least\n- include a dog-waste bin, or confirm that bagged waste can go in the general bins\n- put any new bins on the emptying round, because a bin left overflowing makes things worse than no bin at all\n- let me know whether this can be done, and roughly when",
+            "With 106 new homes going in at Burgage More, the number of people walking this road is about to go up a lot.",
+            "I've copied the Baltinglass district office, who service the area.",
+            h.sig(d)
+          ]).join("\n\n");
+        }
+      },
+      reps: {
+        title: "Councillors and TDs",
+        blurb: "One email to all six Baltinglass councillors and the four Wicklow TDs. This is the one that gets it onto a meeting agenda and keeps it there.",
+        to: COUNCILLORS.concat(TDS),
+        cc: [],
+        subject: "Blessington: speed ramps, a mirror and bins on the coffee shop to graveyard road",
+        body: function (d, h) {
+          return [
+            "Dear Councillors and Deputies,",
+            "I live at " + h.addr(d) + ", and I'd appreciate your help with three things on " + road(d) + ".",
+            "1. Speed ramps. Cars come off the N81 and fly down this road. Families and children walk it every day and there have been near misses. Ramps are the only thing that will actually slow people down here.\n\n2. A convex mirror so people can see what's coming when they pull out \u2014 " + mirrorSpot(d) + ".\n\n3. Bins. There isn't one along the whole road. Litter collects in the hedges, and bagged dog waste gets left sitting on walls and verges because there's nowhere to put it."
+          ].concat(h.personal(d), [
+            "The council's own 106-home development at Burgage More is going up right now, which means a lot more traffic and a lot more people on foot. It makes far more sense to sort this before the estate is occupied than after.",
+            "I've written to the Baltinglass district office and to the Environment Section. Could you please:\n- raise it at the next Baltinglass Municipal District meeting, and put down a motion if that's what it takes\n- push for the ramps in particular, and for money to be put against them rather than the road just being added to a list\n- let me know what comes of it",
+            h.sig(d)
+          ]).join("\n\n");
+        }
+      }
+    }
+  };
+})();
+</script>
+<script src="assets/counter.js"></script>
+<script src="assets/mailer.js"></script>
+</body>
+</html>

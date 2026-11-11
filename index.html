@@ -3,823 +3,99 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Burgage More Late Works</title>
-<meta name="description" content="Four ready-made emails to Wicklow County Council and local representatives about late-night construction work at the Burgage More site, Blessington.">
-<meta property="og:title" content="Burgage More Late Works">
-<meta property="og:description" content="Send four ready-made complaints about late-night pours at the Burgage More site in a few minutes.">
+<title>Burgage Castle</title>
+<meta name="description" content="Residents' page for Burgage Castle, Blessington. Ready-made emails to Wicklow County Council, our councillors and TDs about speed ramps, a curved mirror, bins and late-night work at the Burgage More site.">
+<meta property="og:title" content="Burgage Castle">
+<meta property="og:description" content="Ready-made emails to the council, our councillors and TDs. Pick what you want to send, add your name, press Send.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Public+Sans:wght@400;600&display=swap">
-<style>
-/* Layout: one phone-width column under a hazard-stripe band; details form, then four email cards, then sharing */
-:root {
-  --bg: #EDEFEE;
-  --surface: #FFFFFF;
-  --soft: #F5F6F5;
-  --ink: #1A2024;
-  --muted: #56626A;
-  --line: #D0D6D8;
-  --accent: #F2B705;
-  --on-accent: #1A2024;
-  --stripe: #1A2024;
-  --error: #B42318;
-  --ok: #1D7549;
-  --display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
-  --body: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  color-scheme: light;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #111518;
-    --surface: #1A2025;
-    --soft: #151A1E;
-    --ink: #E5E9EB;
-    --muted: #9AA6AD;
-    --line: #2D363C;
-    --accent: #F2B705;
-    --on-accent: #111518;
-    --error: #F97066;
-    --ok: #4CC38A;
-    color-scheme: dark;
-  }
-}
-
-* { box-sizing: border-box; }
-[hidden] { display: none !important; }
-html { -webkit-text-size-adjust: 100%; }
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: var(--body);
-  font-size: 16px;
-  line-height: 1.55;
-  padding-top: env(safe-area-inset-top, 0px);
-  padding-bottom: env(safe-area-inset-bottom, 0px);
-}
-.stripe {
-  height: 12px;
-  background: repeating-linear-gradient(-45deg, var(--accent) 0 14px, var(--stripe) 14px 28px);
-}
-.wrap {
-  max-width: 640px;
-  margin: 0 auto;
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
-  padding-block: 28px 48px;
-  display: grid;
-  gap: 28px;
-}
-
-h1, h2, h3, .eyebrow, .btn-primary, .step-label {
-  font-family: var(--display);
-  text-wrap: balance;
-}
-.eyebrow {
-  margin: 0;
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-h1 {
-  margin: 4px 0 10px;
-  font-size: clamp(2.4rem, 9vw, 3.4rem);
-  line-height: 0.98;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.01em;
-}
-h2 {
-  margin: 0;
-  font-size: 1.6rem;
-  line-height: 1.1;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-}
-h3 {
-  margin: 0;
-  font-size: 1.35rem;
-  line-height: 1.15;
-  font-weight: 700;
-}
-p { margin: 0; }
-.lede { font-size: 1.05rem; max-width: 60ch; }
-.muted { color: var(--muted); }
-.small { font-size: 0.875rem; }
-
-header { display: grid; gap: 6px; }
-
-/* Running tally of emails opened from the page */
-.tally {
-  margin-top: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 28px;
-  align-items: flex-end;
-  padding: 12px 14px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-left: 6px solid var(--accent);
-  border-radius: 10px;
-}
-.tally-stat { display: grid; gap: 2px; }
-.tally-num {
-  font-family: var(--display);
-  font-size: 2.4rem;
-  font-weight: 700;
-  line-height: 1;
-  font-variant-numeric: tabular-nums;
-}
-.tally-label { font-size: 0.85rem; color: var(--muted); }
-.tally-note { flex-basis: 100%; font-size: 0.8rem; color: var(--muted); }
-
-/* What the contractor proposed */
-.proposal {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 16px;
-  display: grid;
-  gap: 12px;
-}
-.options { display: grid; gap: 8px; }
-.option {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 4px 12px;
-  align-items: baseline;
-  padding: 10px 12px;
-  background: var(--soft);
-  border-radius: 8px;
-}
-.option .time {
-  font-family: var(--mono);
-  font-size: 0.95rem;
-  font-variant-numeric: tabular-nums;
-  font-weight: 600;
-  white-space: nowrap;
-}
-.option s { color: var(--muted); }
-.answer {
-  border-left: 4px solid var(--accent);
-  padding: 4px 0 4px 12px;
-  font-weight: 600;
-}
-
-/* Form */
-section { display: grid; gap: 14px; }
-.section-head { display: grid; gap: 4px; }
-.step-label {
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-form { display: grid; gap: 16px; }
-.field { display: grid; gap: 6px; }
-label, legend { font-weight: 600; font-size: 0.95rem; }
-.opt { font-weight: 400; color: var(--muted); }
-input[type="text"], input[type="tel"], textarea {
-  width: 100%;
-  font: inherit;
-  font-size: 16px;
-  color: var(--ink);
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 11px 12px;
-}
-textarea { min-height: 76px; resize: vertical; }
-input::placeholder, textarea::placeholder { color: var(--muted); opacity: 0.8; }
-.field.invalid input { border-color: var(--error); box-shadow: 0 0 0 1px var(--error); }
-.field .err { display: none; color: var(--error); font-size: 0.875rem; }
-.field.invalid .err { display: block; }
-fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 8px; }
-legend { margin-bottom: 8px; padding: 0; }
-.check {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  font-weight: 400;
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--surface);
-  cursor: pointer;
-}
-.check input { width: 20px; height: 20px; margin: 2px 0 0; flex: none; accent-color: var(--accent); }
-.privacy { font-size: 0.875rem; color: var(--muted); }
-
-/* Email cards */
-.mails { display: grid; gap: 16px; }
-.mail {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 16px;
-  display: grid;
-  gap: 12px;
-  min-width: 0;
-}
-.mail-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
-.count {
-  font-family: var(--mono);
-  font-size: 0.8rem;
-  color: var(--muted);
-  font-variant-numeric: tabular-nums;
-}
-.meta { display: grid; gap: 6px; margin: 0; }
-.meta-row {
-  display: grid;
-  grid-template-columns: 4.5rem 1fr auto;
-  gap: 8px;
-  align-items: start;
-  font-size: 0.9rem;
-}
-.meta-row dt { color: var(--muted); margin: 0; }
-.meta-row dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
-.meta-row .addr { font-size: 0.875rem; line-height: 1.5; white-space: pre-line; overflow-wrap: break-word; }
-.linkish {
-  font: inherit;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--ink);
-  background: none;
-  border: 0;
-  padding: 0 2px;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  cursor: pointer;
-}
-.actions { display: grid; gap: 8px; }
-.btn-primary {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 52px;
-  padding: 12px 18px;
-  border-radius: 8px;
-  background: var(--accent);
-  color: var(--on-accent);
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border: 0;
-}
-.btn-primary:active { transform: translateY(1px); }
-.secondary { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.btn-secondary {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 44px;
-  padding: 8px 12px;
-  border-radius: 8px;
-  border: 1px solid var(--line);
-  background: transparent;
-  color: var(--ink);
-  font: inherit;
-  font-size: 0.95rem;
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
-}
-.status {
-  display: none;
-  font-size: 0.875rem;
-  color: var(--ok);
-  font-weight: 600;
-}
-.mail.opened .status { display: block; }
-.mail.opened { border-color: var(--ok); }
-details { border-top: 1px solid var(--line); padding-top: 10px; }
-summary { cursor: pointer; font-weight: 600; font-size: 0.95rem; }
-pre.preview {
-  margin: 10px 0 0;
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
-  font-family: var(--body);
-  font-size: 0.9rem;
-  line-height: 1.5;
-  background: var(--soft);
-  border-radius: 8px;
-  padding: 12px;
-  max-height: 360px;
-  overflow-y: auto;
-}
-
-/* After sending + share */
-.tips { margin: 0; padding-left: 1.2rem; display: grid; gap: 6px; }
-.tips a { color: inherit; font-weight: 600; }
-.share {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 16px;
-  display: grid;
-  gap: 12px;
-}
-footer { font-size: 0.85rem; color: var(--muted); display: grid; gap: 6px; border-top: 1px solid var(--line); padding-top: 16px; }
-footer a { color: inherit; }
-
-a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus-visible {
-  outline: 3px solid var(--accent);
-  outline-offset: 2px;
-}
-@media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; animation: none !important; }
-}
-@media (max-width: 380px) {
-  .secondary { grid-template-columns: 1fr; }
-  .meta-row { grid-template-columns: 4rem 1fr auto; }
-}
-</style>
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 <div class="stripe" aria-hidden="true"></div>
 <main class="wrap">
 
   <header>
-    <p class="eyebrow">Burgage More site · Blessington</p>
-    <h1>No more late-night pours</h1>
-    <p class="lede">Four ready-made emails: three to Wicklow County Council and one to our councillors and TDs. Add your name and address, tap each button, check the email and press Send. It takes a few minutes.</p>
-    <div class="tally" id="tally" aria-live="polite">
-      <div class="tally-stat"><span class="tally-num" id="t-emails">0</span><span class="tally-label">emails sent so far</span></div>
-      <p class="tally-note">Counts each email opened from this page. No names or addresses are recorded.</p>
+    <p class="eyebrow">Blessington &middot; Co. Wicklow</p>
+    <h1>Burgage Castle</h1>
+    <p class="lede">A residents' page for our estate and the roads around it. When something needs sorting, the emails are already written here &mdash; to Wicklow County Council, our six councillors and the four Wicklow TDs. You add your name, read it over, and press Send in your own email app.</p>
+    <div class="tally" id="tally" data-tally-box hidden aria-live="polite">
+      <div class="tally-stat"><span class="tally-num" id="t-all">0</span><span class="tally-label">emails sent by neighbours so far</span></div>
+      <p class="tally-note">Counts each email opened from these pages. No names or addresses are recorded.</p>
     </div>
   </header>
 
-  <div class="proposal">
-    <h2>What the contractor asked us</h2>
-    <p class="muted small">Next week they need to pour 10 apartment floors, and asked residents to pick one of these:</p>
-    <div class="options">
-      <div class="option"><span class="time">22:00–23:00</span><span><s>Option 1: two pours, each finishing late at night</s></span></div>
-      <div class="option"><span class="time">17:00–19:00</span><span><s>Option 2: five pours, each running into the evening</s></span></div>
-    </div>
-    <p class="answer">Our answer: neither. The work should stay within the site's approved hours.</p>
-  </div>
-
-  <section aria-labelledby="details-h">
+  <section aria-labelledby="now-h">
     <div class="section-head">
-      <span class="step-label">Step 1</span>
-      <h2 id="details-h">Your details</h2>
+      <h2 id="now-h">What's on right now</h2>
     </div>
-    <form id="details" novalidate>
-      <div class="field" id="f-name">
-        <label for="name">Full name</label>
-        <input type="text" id="name" autocomplete="name" placeholder="e.g. Mary Byrne">
-        <span class="err">Add your name. The council won't act on unsigned complaints.</span>
-      </div>
-      <div class="field" id="f-address">
-        <label for="address">Your address</label>
-        <input type="text" id="address" autocomplete="street-address" placeholder="e.g. 25 Burgage Castle, Blessington">
-        <span class="err">Add your address so the council knows you're directly affected.</span>
-      </div>
-      <div class="field">
-        <label for="phone">Phone <span class="opt">(optional)</span></label>
-        <input type="tel" id="phone" autocomplete="tel" placeholder="e.g. 087 123 4567">
-      </div>
-      <div class="field">
-        <label for="when">When did late work affect you? <span class="opt">(optional, but it helps)</span></label>
-        <textarea id="when" rows="3" placeholder="One per line, e.g. - Thu 23 Oct: work finished at 22:10"></textarea>
-        <span class="small muted">Known late finishes are filled in. Add any others you noticed, one per line.</span>
-      </div>
-      <fieldset>
-        <legend>How is it affecting your household? <span class="opt">(tick any)</span></legend>
-        <label class="check"><input type="checkbox" name="impact" value="kids" checked> Young children can't get to sleep</label>
-        <label class="check"><input type="checkbox" name="impact" value="early" checked> Early starts for work or school</label>
-        <label class="check"><input type="checkbox" name="impact" value="shifts"> Someone works shifts or nights</label>
-        <label class="check"><input type="checkbox" name="impact" value="health"> Someone is pregnant, elderly or unwell</label>
-        <label class="check"><input type="checkbox" name="impact" value="lights"> Noise and floodlights reach our bedrooms</label>
-      </fieldset>
-      <div class="field">
-        <label for="extra">Anything else you want to add <span class="opt">(optional)</span></label>
-        <textarea id="extra" placeholder="In your own words. Personal detail makes each complaint count."></textarea>
-      </div>
-      <p class="privacy">Nothing is sent from this page. Your details stay on your phone and only go out when you press Send in your own email app.</p>
-    </form>
+    <nav class="issues" aria-label="Current issues">
+      <a class="issue" href="roads.html">
+        <span class="issue-title">Ramps, a mirror &amp; bins <span class="arrow" aria-hidden="true">&rarr;</span></span>
+        <p class="small muted">Cars come off the N81 and fly down the road from the coffee shop to the graveyard &mdash; a road families and children walk every day. And there isn't a single bin along the whole stretch.</p>
+        <ul class="issue-asks">
+          <li><strong>Speed ramps</strong> between the coffee shop and the graveyard</li>
+          <li><strong>A curved mirror</strong> where you can't see what's coming</li>
+          <li><strong>Bins</strong> for litter and for dog waste</li>
+        </ul>
+        <span class="issue-foot"><span class="badge">3 emails</span> <span data-tally-box hidden><span class="n" id="t-roads">0</span> sent so far</span></span>
+      </a>
+
+      <a class="issue" href="late-works.html">
+        <span class="issue-title">Late-night site work <span class="arrow" aria-hidden="true">&rarr;</span></span>
+        <p class="small muted">Pours, power floats and generators running past 22:00 at the council's 106-home site, and a contractor asking residents to pick how late they're disturbed.</p>
+        <ul class="issue-asks">
+          <li>Keep work inside the site's approved hours</li>
+          <li>Written confirmation of what those hours are</li>
+          <li>A named council contact for residents</li>
+        </ul>
+        <span class="issue-foot"><span class="badge">4 emails</span> <span data-tally-box hidden><span class="n" id="t-emails">0</span> sent so far</span></span>
+      </a>
+    </nav>
   </section>
 
-  <section aria-labelledby="send-h">
+  <section aria-labelledby="how-h">
     <div class="section-head">
-      <span class="step-label">Step 2</span>
-      <h2 id="send-h">Send all four</h2>
-      <p class="muted small">Each goes to a different place, so each one gets logged and answered separately. The council emails also copy in the Directors of Services for Housing and for Transport &amp; Infrastructure Delivery, the section running the project.</p>
-    </div>
-    <div class="mails" id="mails"></div>
-  </section>
-
-  <section aria-labelledby="after-h">
-    <div class="section-head">
-      <span class="step-label">Step 3</span>
-      <h2 id="after-h">Keep it going</h2>
+      <h2 id="how-h">How it works</h2>
     </div>
     <ul class="tips">
-      <li>Keep a log of each late finish: the date, the time work actually stopped, a short video with the time showing, and how it affected your household (sleep, children, health).</li>
-      <li>Send again each time it happens, adding the new date. Repeat complaints carry weight.</li>
-      <li>Keep the council's replies. If its final response to the formal complaint doesn't fix things, you can take it to the <a href="https://www.ombudsman.ie" target="_blank" rel="noopener">Ombudsman</a>.</li>
-      <li>Prefer to phone? The council's Housing Directorate is on <a href="tel:+35340420120">0404 20120</a>.</li>
+      <li><strong>Nothing is sent from this site.</strong> Each button opens the email, already written, in your own app &mdash; Apple Mail, Gmail, Outlook, whichever you use. You read it and press Send yourself.</li>
+      <li><strong>Type your details once.</strong> Your name, address and phone carry over between the pages and stay on your own device.</li>
+      <li><strong>Send from your own address.</strong> The council logs and answers each email separately, and identical anonymous emails get ignored &mdash; so the few edits you make in your own words are the part that counts.</li>
+      <li><strong>More than one is fine.</strong> They go to different sections of the council, so one doesn't crowd out the other.</li>
     </ul>
   </section>
 
   <div class="share">
-    <h2>Share with neighbours</h2>
-    <p class="small muted">The more households that send these, the harder they are to ignore.</p>
-    <div class="secondary">
-      <a class="btn-secondary" id="wa" href="#" target="_blank" rel="noopener">Share on WhatsApp</a>
-      <button type="button" class="btn-secondary" id="copy-link">Copy link</button>
-    </div>
+    <h2>Something else need adding?</h2>
+    <p class="small muted">If there's another thing the estate needs chased &mdash; lighting, footpaths, the green, parking &mdash; put it in the WhatsApp group and it can go up here as its own page.</p>
   </div>
 
   <footer>
-    <p>Made by residents near the Burgage More site. Council and councillor addresses are from wicklow.ie; TD addresses are their Oireachtas emails. This is not legal advice.</p>
-    <p>Your details are never sent anywhere by this page. A copy stays on your own device so you don't have to retype them. When you tap an email button, the page adds one to an anonymous tally (kept by the free Abacus counter service) so neighbours can see how many have been sent.</p>
+    <p>Made by residents at Burgage Castle, Blessington. Council and councillor addresses are from wicklow.ie; TD addresses are their Oireachtas emails. This is not legal advice.</p>
+    <p>No details are ever sent anywhere by this site. The counts above come from an anonymous tally (the free Abacus counter service) of how many emails have been opened from these pages.</p>
   </footer>
 </main>
 
+<script src="assets/counter.js"></script>
 <script>
 (function () {
   "use strict";
-
-  // ===== KEEP THIS LIST UP TO DATE =====
-  // Known late finishes at the site. One entry per line, in quotes, each followed by a comma.
-  // These are pre-filled in "When did late work affect you?" for everyone, and added for
-  // returning visitors who already typed their own dates.
-  var LATE_FINISHES = [
-    "Mon 19 Oct: work finished at 22:30"
+  // Each issue's count, plus a combined total in the header once both land.
+  var ISSUES = [
+    { key: "roads", id: "t-roads" },
+    { key: "emails", id: "t-emails" }
   ];
-  // =====================================
-
-  var STORE = "burgage-more-complaint-v1";
-  var FIELDS = ["name", "address", "phone", "when", "extra"];
-  var IMPACTS = {
-    kids: "young children can't get to sleep",
-    early: "we have early starts for work or school",
-    shifts: "someone in the household works shifts or nights",
-    health: "someone in the household is pregnant, elderly or unwell",
-    lights: "the noise and floodlights reach our bedrooms"
-  };
-
-  // Council emails copy both directorates. Planning Enforcement replied (30 Oct) that this
-  // falls under Transport & Infrastructure Delivery, which is delivering the scheme.
-  var CC_ROLES = {
-    "mnichols@wicklowcoco.ie": "Director of Services, Housing",
-    "jlane@wicklowcoco.ie": "Director of Services, Transport & Infrastructure Delivery"
-  };
-  var COUNCIL_CC = Object.keys(CC_ROLES);
-  var COUNCILLORS = [
-    "jmulhall@wicklowcoco.ie",
-    "acronin@wicklowcoco.ie",
-    "pstapleton@wicklowcoco.ie",
-    "GEONeill@wicklowcoco.ie",
-    "PatsyGlennon@gmail.com",
-    "pmahon@wicklowcoco.ie"
-  ];
-  var TDS = [
-    "john.brady@oireachtas.ie",
-    "simon.harris@oireachtas.ie",
-    "edward.timmins@oireachtas.ie",
-    "jennifer.whitmore@oireachtas.ie"
-  ];
-
-  function joinList(items) {
-    if (items.length <= 1) return items.join("");
-    return items.slice(0, -1).join(", ") + " and " + items[items.length - 1];
-  }
-  function signature(d) {
-    return "Yours sincerely,\n" + (d.name || "[Your name]") + "\n" + (d.address || "[Your address]") + (d.phone ? "\n" + d.phone : "");
-  }
-  function addr(d) { return d.address || "[your address]"; }
-  function personal(d) {
-    var out = [];
-    if (d.when) out.push("Dates and times this affected me:\n" + d.when);
-    if (d.impacts.length) out.push("It is affecting my household because " + joinList(d.impacts) + ".");
-    if (d.extra) out.push(d.extra);
-    return out;
-  }
-
-  var ORDER = ["enf", "env", "cs", "reps"];
-  var EMAILS = {
-    enf: {
-      title: "Council project team",
-      blurb: "Planning Enforcement told residents this is handled by the council section delivering the scheme, so it goes straight there. Asks them to confirm the approved hours and hold the contractor to them.",
-      to: ["part8@wicklowcoco.ie"],
-      cc: COUNCIL_CC,
-      subject: "Complaint: late-night construction work at Burgage More, Blessington",
-      body: function (d) {
-        return [
-          "Dear Transport & Infrastructure Delivery Directorate,",
-          "I wish to make a complaint about construction work continuing late into the evening at the Council's housing development at Burgage More, Blessington (106 homes, Part 8 scheme), which ABM is building on the Council's behalf. The Planning Enforcement section has advised that this matter falls under your Directorate.",
-          "I live at " + addr(d) + ". Work on the site has run well past normal hours, with concrete pours, power floats and generators going on into the night. On at least one evening it continued until after 22:00.",
-          "The contractor has now asked residents to choose between two pours next week finishing at 22:00 to 23:00, or five pours finishing between 17:00 and 19:00. I do not accept either option. I expect all work to stay within the site's approved working hours.",
-          "Please:\n- confirm in writing the approved working hours for this site, and whether any extension has been authorised\n- instruct the contractor to keep to those hours, with advance written notice to residents of any genuine exception\n- keep me informed of the action taken"
-        ].concat(personal(d), [
-          "I have copied the Directors of Services for Housing and for Transport & Infrastructure Delivery.",
-          signature(d)
-        ]).join("\n\n");
-      }
-    },
-    env: {
-      title: "Environment (noise)",
-      blurb: "Reports the noise and asks the council to use its noise powers on the contractor.",
-      to: ["envcomplaints@wicklowcoco.ie"],
-      cc: COUNCIL_CC,
-      subject: "Noise complaint: evening construction noise at Burgage More site, Blessington",
-      body: function (d) {
-        return [
-          "Dear Environmental Services,",
-          "I want to report noise nuisance from the construction site at Burgage More, Blessington, the Council's social housing development being built by ABM.",
-          "I live at " + addr(d) + ". Concrete pours, power floats and generators have been running into the late evening, on at least one occasion past 22:00. The contractor has told residents it may run pours until 22:00 to 23:00 next week."
-        ].concat(personal(d), [
-          "I ask the Council to investigate and to use its powers under section 107 of the Environmental Protection Agency Act 1992 to require the contractor to limit the noise and keep noisy work within normal daytime hours.",
-          "Please acknowledge this complaint and tell me what action is taken.",
-          signature(d)
-        ]).join("\n\n");
-      }
-    },
-    cs: {
-      title: "Formal complaint",
-      blurb: "Registers a formal complaint, which is the step you need before going to the Ombudsman.",
-      to: ["customerservice@wicklowcoco.ie"],
-      cc: COUNCIL_CC,
-      subject: "Formal complaint: working hours at Council housing site, Burgage More, Blessington",
-      body: function (d) {
-        return [
-          "Dear Customer Services Manager,",
-          "Please register this as a formal complaint under the Council's customer complaints procedure. I have copied the Directors of Services for Housing and for Transport & Infrastructure Delivery, as the Burgage More development falls under their Directorates.",
-          "Wicklow County Council is the developer of the 106-home Part 8 scheme at Burgage More, Blessington, and ABM is building it on the Council's behalf. As the client, the Council can direct its contractor on working hours.",
-          "I live at " + addr(d) + ". Work has repeatedly run late into the evening. The contractor has now asked residents to choose between next week's pours finishing at 22:00 to 23:00, or between 17:00 and 19:00. Residents should not be asked to choose how late they are disturbed, and I do not accept either option.",
-          "I ask the Council to:\n- confirm the approved working hours for this site, and whether any extension was authorised and by whom\n- instruct the contractor to keep all work within those hours, with advance written notice to residents of any genuine exception\n- send me a copy of the construction management plan for the site\n- name a Council contact for residents"
-        ].concat(personal(d), [signature(d)]).join("\n\n");
-      }
-    },
-    reps: {
-      title: "Councillors and TDs",
-      blurb: "One email to all six Baltinglass Municipal District councillors and the four Wicklow TDs.",
-      to: COUNCILLORS.concat(TDS),
-      cc: [],
-      subject: "Late-night construction work at Council housing site, Burgage More, Blessington",
-      body: function (d) {
-        return [
-          "Dear Councillors and Deputies,",
-          "I live at " + addr(d) + ", beside the Wicklow County Council social housing development at Burgage More, Blessington, which ABM is building on the Council's behalf.",
-          "Work on the site has repeatedly run late into the evening, on at least one occasion past 22:00. The contractor has now asked residents to choose between next week's concrete pours finishing at 22:00 to 23:00, or between 17:00 and 19:00. I do not accept either option. Residents have been raising this with the Council, so far without result."
-        ].concat(personal(d), [
-          "I am asking you to:\n- raise this at the next Baltinglass Municipal District meeting\n- ask the Council's Transport & Infrastructure Delivery Directorate, which is delivering the scheme, to confirm the approved working hours for the site and instruct the contractor to keep to them\n- follow it up until residents get a clear answer",
-          "Please let me know what action you take.",
-          signature(d)
-        ]).join("\n\n");
-      }
-    }
-  };
-
-  function $(sel, root) { return (root || document).querySelector(sel); }
-  function $all(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
-  function enc(s) { return encodeURIComponent(s); }
-
-  // Build the cards
-  var mails = $("#mails");
-  ORDER.forEach(function (key, i) {
-    var m = EMAILS[key];
-    var card = document.createElement("article");
-    card.className = "mail";
-    card.setAttribute("data-key", key);
-    card.innerHTML =
-      '<div class="mail-top"><h3></h3><span class="count">' + (i + 1) + ' of ' + ORDER.length + '</span></div>' +
-      '<p class="small muted" data-blurb></p>' +
-      '<dl class="meta">' +
-        '<div class="meta-row"><dt>To</dt><dd class="addr" data-to></dd><button type="button" class="linkish" data-copy="to">Copy</button></div>' +
-        '<div class="meta-row" data-cc-row><dt>Cc</dt><dd class="addr" data-cc></dd><button type="button" class="linkish" data-copy="cc">Copy</button></div>' +
-        '<div class="meta-row"><dt>Subject</dt><dd data-subject></dd><button type="button" class="linkish" data-copy="subject">Copy</button></div>' +
-      '</dl>' +
-      '<div class="actions">' +
-        '<a class="btn-primary" data-mailto href="#">Open in email app</a>' +
-        '<div class="secondary">' +
-          '<a class="btn-secondary" data-gmail href="#" target="_blank" rel="noopener">Use Gmail</a>' +
-          '<button type="button" class="btn-secondary" data-copy="body">Copy message</button>' +
-        '</div>' +
-        '<p class="status" role="status">Opened in your email app. Check it and press Send there.</p>' +
-      '</div>' +
-      '<details><summary>Read the email</summary><pre class="preview" data-preview></pre></details>';
-    $("h3", card).textContent = m.title;
-    $("[data-blurb]", card).textContent = m.blurb;
-    $("[data-to]", card).textContent = m.to.join("\n");
-    $("[data-subject]", card).textContent = m.subject;
-    if (m.cc.length) {
-      $("[data-cc]", card).textContent = m.cc.map(function (e) { return e + " (" + CC_ROLES[e] + ")"; }).join("\n");
-    } else {
-      $("[data-cc-row]", card).hidden = true;
-    }
-    mails.appendChild(card);
-  });
-
-  function readData() {
-    var d = {};
-    FIELDS.forEach(function (f) { d[f] = $("#" + f).value.trim(); });
-    d.impactKeys = $all('input[name="impact"]:checked').map(function (i) { return i.value; });
-    d.impacts = d.impactKeys.map(function (k) { return IMPACTS[k]; });
-    return d;
-  }
-
-  function mailtoHref(m, body) {
-    var q = [];
-    if (m.cc.length) q.push("cc=" + m.cc.join(","));
-    q.push("subject=" + enc(m.subject));
-    q.push("body=" + enc(body.replace(/\n/g, "\r\n")));
-    return "mailto:" + m.to.join(",") + "?" + q.join("&");
-  }
-  function gmailHref(m, body) {
-    var url = "https://mail.google.com/mail/?view=cm&fs=1&to=" + enc(m.to.join(","));
-    if (m.cc.length) url += "&cc=" + enc(m.cc.join(","));
-    return url + "&su=" + enc(m.subject) + "&body=" + enc(body);
-  }
-
-  function render() {
-    var d = readData();
-    $all(".mail").forEach(function (card) {
-      var m = EMAILS[card.getAttribute("data-key")];
-      var body = m.body(d);
-      $("[data-preview]", card).textContent = body;
-      $("[data-mailto]", card).href = mailtoHref(m, body);
-      $("[data-gmail]", card).href = gmailHref(m, body);
-    });
-    save(d);
-  }
-
-  function save(d) {
-    try {
-      var prev = JSON.parse(localStorage.getItem(STORE) || "{}");
-      var out = { opened: prev.opened || [] };
-      FIELDS.forEach(function (f) { out[f] = d[f]; });
-      out.impacts = d.impactKeys;
-      localStorage.setItem(STORE, JSON.stringify(out));
-    } catch (e) { /* storage unavailable: page still works */ }
-  }
-
-  function withKnownDates(text) {
-    // Add any known late finish that isn't already in the text, keeping the person's own lines
-    var lines = (text || "").split("\n").filter(function (l) { return l.trim(); });
-    var missing = LATE_FINISHES.filter(function (entry) {
-      return !lines.some(function (l) { return l.indexOf(entry) !== -1; });
-    }).map(function (entry) { return "- " + entry; });
-    return missing.concat(lines).join("\n");
-  }
-
-  function load() {
-    $("#when").value = withKnownDates("");
-    try {
-      var s = JSON.parse(localStorage.getItem(STORE) || "{}");
-      FIELDS.forEach(function (f) { if (s[f] && f !== "when") $("#" + f).value = s[f]; });
-      if (s.when) $("#when").value = withKnownDates(s.when);
-      if (Array.isArray(s.impacts)) {
-        $all('input[name="impact"]').forEach(function (i) { i.checked = s.impacts.indexOf(i.value) !== -1; });
-      }
-      (s.opened || []).forEach(function (k) {
-        var c = $('.mail[data-key="' + k + '"]');
-        if (c) c.classList.add("opened");
-      });
-    } catch (e) { /* ignore */ }
-  }
-
-  // Anonymous tally. Only counts on the live github.io page, so test copies don't inflate it.
-  var COUNTER = "https://abacus.jasoncameron.dev";
-  var COUNTER_NS = "burgage-castle-amaharek";
-  var LIVE = /\.github\.io$/.test(location.hostname);
-
-  function setTally(id, value) {
-    if (typeof value !== "number") return;
-    $("#" + id).textContent = value.toLocaleString("en-IE");
-    $("#tally").hidden = false;
-  }
-  function getCount(key, id) {
-    fetch(COUNTER + "/get/" + COUNTER_NS + "/" + key)
-      .then(function (r) { return r.status === 404 ? { value: 0 } : (r.ok ? r.json() : Promise.reject()); })
-      .then(function (d) { setTally(id, d.value); })
-      .catch(function () { /* counter unavailable: keep it hidden */ });
-  }
-  function hitCount(key, id) {
-    if (!LIVE) return;
-    fetch(COUNTER + "/hit/" + COUNTER_NS + "/" + key, { keepalive: true })
-      .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function (d) { setTally(id, d.value); })
-      .catch(function () { /* ignore */ });
-  }
-
-  function updateShare() {
-    // First-person message once the visitor has opened at least one email; neutral before that
-    var sent = $all(".mail.opened").length > 0;
-    var msg = sent
-      ? "I've just sent my complaints about the late-night pours at the Burgage More site. Took me 2 minutes. Please send yours too, the more households the better 💪 "
-      : "Late-night pours at the Burgage More site? Send ready-made complaints to the council, councillors and TDs in 2 minutes. The more households the better 💪 ";
-    $("#wa").href = "https://wa.me/?text=" + enc(msg + location.href.split("#")[0]);
-  }
-
-  function markOpened(key) {
-    var c = $('.mail[data-key="' + key + '"]');
-    if (c) c.classList.add("opened");
-    updateShare();
-    try {
-      var s = JSON.parse(localStorage.getItem(STORE) || "{}");
-      s.opened = s.opened || [];
-      if (s.opened.indexOf(key) === -1) s.opened.push(key);
-      localStorage.setItem(STORE, JSON.stringify(s));
-    } catch (e) { /* ignore */ }
-  }
-
-  function validate() {
-    var ok = true, first = null;
-    ["name", "address"].forEach(function (f) {
-      var wrap = $("#f-" + f);
-      var empty = !$("#" + f).value.trim();
-      wrap.classList.toggle("invalid", empty);
-      if (empty) { ok = false; if (!first) first = $("#" + f); }
-    });
-    if (first) {
-      first.scrollIntoView({ behavior: "smooth", block: "center" });
-      setTimeout(function () { first.focus({ preventScroll: true }); }, 300);
-    }
-    return ok;
-  }
-
-  function flash(btn, text) {
-    var old = btn.getAttribute("data-label") || btn.textContent;
-    btn.setAttribute("data-label", old);
-    btn.textContent = text;
-    clearTimeout(btn._t);
-    btn._t = setTimeout(function () { btn.textContent = old; }, 1600);
-  }
-
-  function copyText(text, btn) {
-    function fallback() {
-      var ta = document.createElement("textarea");
-      ta.value = text;
-      ta.setAttribute("readonly", "");
-      ta.style.position = "fixed";
-      ta.style.opacity = "0";
-      document.body.appendChild(ta);
-      ta.select();
-      var done = false;
-      try { done = document.execCommand("copy"); } catch (e) { done = false; }
-      document.body.removeChild(ta);
-      flash(btn, done ? "Copied" : "Couldn't copy");
-    }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(function () { flash(btn, "Copied"); }, fallback);
-    } else {
-      fallback();
-    }
-  }
-
-  // Wire up
-  load();
-  render();
-
-  $("#details").addEventListener("input", function (e) {
-    if (e.target.id === "name" || e.target.id === "address") {
-      if (e.target.value.trim()) $("#f-" + e.target.id).classList.remove("invalid");
-    }
-    render();
-  });
-  $("#details").addEventListener("submit", function (e) { e.preventDefault(); });
-
-  $all(".mail").forEach(function (card) {
-    var key = card.getAttribute("data-key");
-    var m = EMAILS[key];
-    ["[data-mailto]", "[data-gmail]"].forEach(function (sel) {
-      $(sel, card).addEventListener("click", function (e) {
-        if (!validate()) { e.preventDefault(); return; }
-        render();
-        // Count each email once per device
-        var firstForThisEmail = !card.classList.contains("opened");
-        markOpened(key);
-        if (firstForThisEmail) hitCount("emails", "t-emails");
-      });
-    });
-    $all("[data-copy]", card).forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var what = btn.getAttribute("data-copy");
-        if (what === "body" && !validate()) return;
-        var text = what === "to" ? m.to.join(", ")
-          : what === "cc" ? m.cc.join(", ")
-          : what === "subject" ? m.subject
-          : m.body(readData());
-        copyText(text, btn);
-      });
+  var total = 0, done = 0;
+  ISSUES.forEach(function (issue) {
+    Tally.get(issue.key, issue.id, function (value) {
+      total += value;
+      if (++done < ISSUES.length) return;
+      document.getElementById("t-all").textContent = total.toLocaleString("en-IE");
+      document.getElementById("tally").hidden = false;
     });
   });
-
-  // Sharing
-  var pageUrl = location.href.split("#")[0];
-  updateShare();
-  getCount("emails", "t-emails");
-  $("#copy-link").addEventListener("click", function () { copyText(pageUrl, this); });
 })();
 </script>
 </body>
