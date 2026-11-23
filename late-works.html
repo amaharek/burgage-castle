@@ -21,12 +21,27 @@
   <header>
     <p class="eyebrow">Burgage More site &middot; Blessington</p>
     <h1>No more late-night pours</h1>
-    <p class="lede">Ask the council to address late-night work at Burgage More. Add your details, then review and send the four drafts to council teams and local representatives.</p>
+    <p class="lede">Ask the council to address late-night work at Burgage More. Add your details, send the urgent reply at the top today, then review and send the four standing drafts to council teams and local representatives.</p>
     <div class="tally" id="tally" data-tally-box hidden aria-live="polite">
       <div class="tally-stat"><span class="tally-num" id="t-emails">0</span><span class="tally-label">email drafts opened</span></div>
       <p class="tally-note">Counts drafts opened, not emails sent.</p>
     </div>
   </header>
+
+  <section id="urgent" aria-labelledby="urgent-h">
+    <div class="urgent" role="note">
+      <p class="eyebrow">Urgent &middot; send today</p>
+      <h2 id="urgent-h">22:00 again tomorrow, Tue 24 Nov</h2>
+      <p>ABM has told residents it will work until <strong>19:00 today (Mon 23 Nov)</strong> and until <strong>22:00 tomorrow (Tue 24 Nov)</strong>. It also worked until <strong>22:00 last Wednesday, 18 Nov</strong>.</p>
+      <p>On 6 Nov the council confirmed that permitted hours are 7am to 7pm, Monday to Friday. It said ABM had been told to comply and that any later work needs prior approval.</p>
+    </div>
+    <div class="section-head">
+      <p class="small"><strong>Already emailed Audrey Bowen?</strong> Press Reply on her 6 November email, then use <em>Copy message</em> below and paste it in. Add the other addresses listed below to your reply before sending.</p>
+      <p class="small"><strong>Not emailed before?</strong> Use <em>Open in my email app</em> below and it is addressed for you.</p>
+      <p class="muted small">Either way, <a href="#details-h">add your name and address</a> first so the email goes in your name.</p>
+    </div>
+    <div class="mails" id="urgent-mails"></div>
+  </section>
 
   <div class="proposal">
     <h2>What the contractor asked us</h2>
@@ -82,7 +97,7 @@
   <section aria-labelledby="send-h">
     <div class="section-head">
       <span class="step-label">Step 2</span>
-      <h2 id="send-h">Send all four</h2>
+      <h2 id="send-h">Then send all four</h2>
       <p class="muted small">Drafts for the project team, Environment, Customer Services and local representatives. Council emails copy the Housing and Transport directors.</p>
     </div>
     <div class="mails" id="mails"></div>
@@ -126,7 +141,8 @@
   // These are pre-filled in "When did late work affect you?" for everyone, and added for
   // returning visitors who already typed their own dates.
   var LATE_FINISHES = [
-    "Mon 19 Oct: work finished at 22:30"
+    "Mon 19 Oct: work finished at 22:30",
+    "Wed 18 Nov: work finished at 22:00"
   ];
   // =====================================
 
@@ -174,11 +190,36 @@
       return out;
     },
     share: {
-      sent: "Affected by late-night work at Burgage More? Email drafts for the council and local representatives: ",
-      neutral: "Affected by late-night work at Burgage More? Email drafts for the council and local representatives: "
+      sent: "ABM says 22:00 again tomorrow (Tue 24 Nov). Please send the urgent email at the top of this page today: ",
+      neutral: "ABM says 22:00 again tomorrow (Tue 24 Nov). Please send the urgent email at the top of this page today: "
     },
-    order: ["enf", "env", "cs", "reps"],
+    order: ["urgent", "enf", "env", "cs", "reps"],
     emails: {
+      // Urgent escalation (23 Nov). Renders in its own section via `container`.
+      urgent: {
+        container: "#urgent-mails",
+        openPreview: true,
+        title: "Urgent: stop tomorrow's 22:00 finish",
+        blurb: "Tells the council ABM worked until 22:00 on 18 Nov and plans 22:00 again on 24 Nov, and asks it to stop tomorrow's late work today.",
+        to: ["ABowen@wicklowcoco.ie", "part8@wicklowcoco.ie", "enforcements@wicklowcoco.ie"],
+        cc: COUNCIL_CC.concat(["customerservice@wicklowcoco.ie"], COUNCILLORS, TDS),
+        subject: "URGENT: late working at Burgage More, 22:00 on Wed 18 Nov and 22:00 planned for Tue 24 Nov",
+        body: function (d, h) {
+          return [
+            "Dear Ms Bowen and Project Team,",
+            "I live at " + h.addr(d) + ". I am writing urgently about late working at the council's Burgage More housing site, built by ABM. This needs action today, before tomorrow evening.",
+            "On 6 November the council confirmed that permitted construction hours are 7am to 7pm, Monday to Friday. It said ABM had been reminded of these hours and told to comply, and that any extension would need prior approval.",
+            "Since then:\n- Wednesday 18 November: work continued until 22:00, three hours past the permitted finish.\n- ABM has now told residents it will work until 19:00 today, Monday 23 November, and until 22:00 tomorrow, Tuesday 24 November.",
+            "Tomorrow's planned finish is again three hours past the permitted hours. Today's 19:00 finish is at the very limit of those hours, and well past the 7.30am to 5pm that ABM told residents would be its normal hours. This is the same pattern residents reported in October. It continued after the contractor was told to comply, so it is not a one-off."
+          ].concat(h.personal(d), [
+            "Please, today:\n1. Confirm whether prior approval was given for the work on 18 November and for the work planned for 24 November, and if so, by whom and why.\n2. If no approval was given, instruct ABM that no work may continue past 19:00 tomorrow, and confirm to me that this has been done.\n3. Tell me what action the council is taking over the breach on 18 November.\n4. Name a council contact residents can call on the night when work runs past 19:00.",
+            "Customer Services: please register this as a formal complaint and send me a reference.",
+            "To the councillors and TDs copied: please raise this with the council again today, ahead of tomorrow evening.",
+            "If this is not resolved, I will take the complaint to the Office of the Ombudsman.",
+            h.sig(d)
+          ]).join("\n\n");
+        }
+      },
       enf: {
         title: "Council project team",
         blurb: "Asks the project team to confirm working hours and make sure ABM keeps to them.",

@@ -46,14 +46,20 @@
   };
 
   /* ---- build the cards ---- */
-  var mails = $("#mails");
-  C.order.forEach(function (key, i) {
+  // An email can set `container` (a selector) to render in its own section.
+  // Cards are numbered "1 of N" within their container; a lone card shows no count.
+  // `openPreview: true` shows that email's text already expanded, ready to copy.
+  function boxOf(m) { return m.container || "#mails"; }
+  C.order.forEach(function (key) {
     var m = C.emails[key];
+    var group = C.order.filter(function (k) { return boxOf(C.emails[k]) === boxOf(m); });
+    var i = group.indexOf(key);
+    var count = group.length > 1 ? '<span class="count">' + (i + 1) + ' of ' + group.length + '</span>' : '';
     var card = document.createElement("article");
     card.className = "mail";
     card.setAttribute("data-key", key);
     card.innerHTML =
-      '<div class="mail-top"><h3></h3><span class="count">' + (i + 1) + ' of ' + C.order.length + '</span></div>' +
+      '<div class="mail-top"><h3></h3>' + count + '</div>' +
       '<p class="small muted" data-blurb></p>' +
       '<dl class="meta">' +
         '<div class="meta-row"><dt>To</dt><dd class="addr" data-to></dd><button type="button" class="linkish" data-copy="to">Copy</button></div>' +
@@ -72,7 +78,7 @@
         '<button type="button" class="btn-secondary" data-copy="body">Copy message</button>' +
         '<p class="status" role="status">Review the draft in your email app, then press Send.</p>' +
       '</div>' +
-      '<details><summary>Read the email</summary><pre class="preview" data-preview></pre></details>';
+      '<details' + (m.openPreview ? ' open' : '') + '><summary>Read the email</summary><pre class="preview" data-preview></pre></details>';
     $("h3", card).textContent = m.title;
     $("[data-blurb]", card).textContent = m.blurb;
     $("[data-to]", card).textContent = m.to.join("\n");
@@ -90,7 +96,7 @@
     } else {
       $("[data-cc-row]", card).hidden = true;
     }
-    mails.appendChild(card);
+    $(boxOf(m)).appendChild(card);
   });
 
   /* ---- reading the form ---- */

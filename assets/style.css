@@ -187,6 +187,21 @@ header { display: grid; gap: 6px; }
   white-space: nowrap;
 }
 
+/* Urgent escalation banner */
+.urgent {
+  background: var(--surface);
+  border: 2px solid var(--error);
+  border-left-width: 6px;
+  border-radius: 10px;
+  padding: 16px;
+  display: grid;
+  gap: 10px;
+}
+.urgent .eyebrow { color: var(--error); }
+.urgent p { margin: 0; }
+#urgent .mail { border-color: var(--error); }
+#urgent .mail.opened { border-color: var(--ok); }
+
 /* What the contractor proposed */
 .proposal {
   background: var(--surface);
